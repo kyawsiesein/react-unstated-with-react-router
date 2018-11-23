@@ -15,3 +15,24 @@
 
   margin-bottom: 16px;
 }
+
+input,
+button {
+  padding: 8px 16px;
+  display: block;
+  border-radius: 2px;
+  border: 1px solid #ddd;
+}
+
+button {
+  border: none;
+  margin-top: 16px;
+  background: #222222;
+  color: white;
+}
+
+.error {
+  display: block;
+  font-size: 11px;
+  color: red;
+}
