@@ -1,12 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import {render} from 'react-dom'
+import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
+import Lists from './Lists'
+import Home from './Home'
+import {Provider} from 'unstated'
+import './index.scss'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+/**
+ * Provider should wrap the browser router
+ */
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const App = () => {
+  return (
+    <Provider>
+      <BrowserRouter>
+        <div>
+          <div className="nav">
+            <Link to="/">Add new task</Link>
+            <Link to="/results">Results</Link>
+          </div>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/results" component={Lists} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </Provider>
+  )
+}
+
+render(<App />, document.getElementById('root'))
